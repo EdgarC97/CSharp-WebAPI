@@ -1,6 +1,8 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using TechStoreAPI.Data;
+using TechStoreAPI.Interfaces;
+using TechStoreAPI.Services;
 
 Env.Load();
 
@@ -25,6 +27,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+// Register the ProductService and IProductService
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
