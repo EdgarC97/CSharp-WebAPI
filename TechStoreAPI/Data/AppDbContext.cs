@@ -50,7 +50,7 @@ namespace TechStoreAPI.Data
                 .HasOne(css => css.Product) // Relationship to Product
                 .WithMany(ss => ss.OrderProducts)
                 .HasForeignKey(css => css.ProductId)
-                .OnDelete(DeleteBehavior.Restrict); // Restrict delete
+                .OnDelete(DeleteBehavior.Cascade); // Cascade delete
 
         }
     }
